@@ -18,7 +18,7 @@ export async function requestToken(req: Request, res: Response) {
     const { indexer, deploymentId } = req.body;
     const sas = await getServiceAgreements(deploymentId, consumer, indexer);
     if (sas.length === 0) {
-      res.status(500).send(`No service agreements`);
+      return res.status(500).send(`No service agreements found for consumer: ${consumer}`);
     }
 
     const { metadata } = await getIndexer(indexer);

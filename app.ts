@@ -3,12 +3,15 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import * as dotenv from 'dotenv';
 
-import { requestToken } from './src/controllers/token';
 import { requestMetadata } from './src/controllers/metadata';
+import { requestToken } from './src/controllers/token';
+
+dotenv.config();
+const port = process.env.PORT ?? 3001;
 
 const app = express();
-const port = 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
