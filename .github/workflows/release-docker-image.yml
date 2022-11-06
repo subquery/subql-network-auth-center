@@ -33,7 +33,7 @@ jobs:
       - name: Get updated app version
         id: get-app-version
         run: |
-          sh .github/workflows/scripts/fetchVersion.sh
+          sh .github/scripts/fetchVersion.sh
 
       - name: Build and push
         if: github.event.inputs.isLatest == 'false'
@@ -52,7 +52,7 @@ jobs:
           push: true
           platforms: arm64,amd64
           file: ./Dockerfile
-          tags: onfinality/subql-network-auth-service:v${{ steps.get-app-version.outputs.APP_VERSION }},onfinality/subql-coordinator:latest
+          tags: onfinality/subql-network-auth-service:v${{ steps.get-app-version.outputs.APP_VERSION }},onfinality/subql-network-auth-service:latest
           build-args: RELEASE_VERSION=${{ steps.get-app-version.outputs.APP_VERSION }}
 
       - name: Image digest
