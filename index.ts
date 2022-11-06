@@ -9,7 +9,7 @@ import { requestMetadata } from './src/controllers/metadata';
 import { requestToken } from './src/controllers/token';
 
 dotenv.config();
-const port = process.env.PORT ?? 3001;
+const port = process.env.PORT ?? 3030;
 
 const app = express();
 
