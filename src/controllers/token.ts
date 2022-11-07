@@ -11,7 +11,7 @@ dotenv.config();
 
 const consumer = process.env.CONSUMER;
 const chainId = process.env.CHAIN_ID;
-const pk = process.env.PK;
+const sk = process.env.sk;
 
 export async function requestToken(req: Request, res: Response) {
   try {
@@ -28,7 +28,7 @@ export async function requestToken(req: Request, res: Response) {
     const timestamp = Date.now();
     const agreement = sas[0].id;
     const message = { indexer, consumer, agreement, deploymentId, timestamp };
-    const token = await requestAuthToken(authUrl, message, pk, Number(chainId));
+    const token = await requestAuthToken(authUrl, message, sk, Number(chainId));
   
     res.status(200).json({ token });
   } catch (e) {
