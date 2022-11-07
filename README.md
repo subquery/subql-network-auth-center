@@ -4,6 +4,7 @@ The auth service provides a convinient way for users consume the queries from in
 
 ## Architecture
 
+![auth](https://user-images.githubusercontent.com/8177474/200216575-9cd0f92c-23df-4272-a37f-4b92f37e4efa.png)
 
 ## Start Service
 
