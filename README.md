@@ -1,4 +1,4 @@
-# Subquery Netwrok Auth Service
+# Subquery Network Auth Service
 
 The auth service provides a convinient way for users consume the queries from indexers with ongoing service agreements or PAYG plans.
 
