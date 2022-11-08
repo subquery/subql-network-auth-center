@@ -1,10 +1,10 @@
 {
   "name": "subql-network-auth-center",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.ts",
+    "dev": "nodemon index.ts",
     "build": "tsc"
   },
   "author": "SubQuery Pte Limited",
