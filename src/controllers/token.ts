@@ -11,7 +11,7 @@ dotenv.config();
 
 const consumer = process.env.CONSUMER;
 const chainId = process.env.CHAIN_ID;
-const sk = process.env.sk;
+const sk = process.env.SK;
 
 export async function requestToken(req: Request, res: Response) {
   try {
