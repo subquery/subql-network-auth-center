@@ -5,26 +5,19 @@ import { Request, Response } from 'express';
 import * as dotenv from 'dotenv';
 
 import { getIndexer, getServiceAgreements } from '../utils/query';
+import { projects } from '../constants/projects';
 
 dotenv.config();
 
 const consumer = process.env.CONSUMER;
 
-// a map between `genesis hash` and `deploymentId`
-// update map with latest deploymentId for a project
-// TODO: move to env config
-const genesisHashToDeploymentId = {
-  '0x91bc6e169807aaa54802737e1c504b2577d4fafedd5a02c10293b1cd60e39527' : 'Qmdpka4MpaUtGP7B3AAoPji4H6X7a2ir53a1mxnUumqMm4',
-}
-
 export async function requestMetadata(req: Request, res: Response) {
   try {
     const genesisHash = req.params.id;
-    const deploymentId = genesisHashToDeploymentId[genesisHash];
+    const deploymentId = projects[genesisHash];
     if (!deploymentId) {
       return res.status(500).send(`No project found for genesis hash ${genesisHash}`);
     }
-
 
     const sas = await getServiceAgreements(deploymentId, consumer);
     if (sas.length === 0) {
